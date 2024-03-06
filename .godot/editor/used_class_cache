@@ -1,0 +1,12 @@
+res://export_presets.cfg::1709488709::e23b618b634d401122686eee6912d12f::
+res://icon.svg::1709419566::43b305bd3d55f8faec5e5175cbe35533::CompressedTexture2D
+res://level.tscn::1709464936::3f40e96ca545dd88be1416422aa77d3d::PackedScene,Environment,Node,WorldEnvironment,CSGCylinder3D,DirectionalLight3D,MultiplayerSpawner
+res://main.gd::1709465294::d2e2b133125c1e92d84111d3f056ca8a::GDScript
+res://main.tscn::1709464936::c9a72e856c65f0c54eb79d680a745100::PackedScene,Node3D,Node,Button,MultiplayerSpawner,ScrollContainer,VBoxContainer
+res://multiplayerSpawnerScript.gd::1709465301::9b00c6ba569b9b0337b9e1507ae022f2::GDScript
+res://player.gd::1709465297::f1a0c5ad76b047c54d2e74c185048acd::GDScript
+res://player.tscn::1709464936::7d39a7d1a701155da69d187895271029::PackedScene,BoxShape3D,SceneReplicationConfig,CharacterBody3D,CollisionShape3D,CSGBox3D,Camera3D,MultiplayerSynchronizer
+res://steam.gd::1709465299::f805af49c40d1a0cbce99982f3ff3390::GDScript
+res://addons/godotsteam/godotsteam.gdextension::1709462756::24b19d7a1674bae56aa90352810e0982::GDExtension
+res://addons/steam-multiplayer-peer/README.md::1709464932::648021d4f166144852fbad76110861ba::
+res://addons/steam-multiplayer-peer/steam-multiplayer-peer.gdextension::1709464932::fdd0d4b2369b1fbed0cef8be29c87fe4::GDExtension

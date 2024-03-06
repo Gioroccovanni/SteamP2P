@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b56gg1g5wb1hh"]
+
+[ext_resource type="Script" path="res://multiplayerSpawnerScript.gd" id="1_qd3bl"]
+[ext_resource type="PackedScene" uid="uid://dxjejrhuoe6ss" path="res://player.tscn" id="2_76wl4"]
+
+[sub_resource type="Environment" id="Environment_qltye"]
+
+[node name="Level" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qltye")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.641, 1)
+radius = 29.539
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89566, 3.64076, -4.68906)
+radius = 1.519
+height = 27.989
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 100, 1)
+shadow_enabled = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath(".")
+script = ExtResource("1_qd3bl")
+playerScene = ExtResource("2_76wl4")
