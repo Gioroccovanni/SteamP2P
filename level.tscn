@@ -1,29 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://b56gg1g5wb1hh"]
+[gd_scene load_steps=10 format=3 uid="uid://b56gg1g5wb1hh"]
 
 [ext_resource type="Script" path="res://multiplayerSpawnerScript.gd" id="1_qd3bl"]
 [ext_resource type="PackedScene" uid="uid://dxjejrhuoe6ss" path="res://player.tscn" id="2_76wl4"]
+[ext_resource type="Texture2D" uid="uid://c8bqctu4q6x0a" path="res://heic1302a.jpg" id="3_1p758"]
 
-[sub_resource type="Environment" id="Environment_qltye"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfup0"]
 
-[node name="Level" type="Node"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cknge"]
+panorama = ExtResource("3_1p758")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qltye")
+[sub_resource type="Sky" id="Sky_v5ah0"]
+sky_material = SubResource("PanoramaSkyMaterial_cknge")
+radiance_size = 6
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.641, 1)
-radius = 29.539
+[sub_resource type="Environment" id="Environment_ubxp8"]
+background_mode = 2
+sky = SubResource("Sky_v5ah0")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a3j6n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vyfek"]
+size = Vector3(100, 1, 100)
+
+[node name="Level" type="Node3D"]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.89566, 3.64076, -4.68906)
+material_overlay = SubResource("StandardMaterial3D_kfup0")
+calculate_tangents = false
+use_collision = true
 radius = 1.519
 height = 27.989
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 100, 1)
-shadow_enabled = true
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ubxp8")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
 script = ExtResource("1_qd3bl")
 playerScene = ExtResource("2_76wl4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+physics_material_override = SubResource("PhysicsMaterial_a3j6n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vyfek")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(100, 1, 100)

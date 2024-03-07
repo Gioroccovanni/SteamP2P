@@ -9,11 +9,19 @@ script = ExtResource("1_shxux")
 [node name="steam" type="Node" parent="."]
 script = ExtResource("1_kf5yb")
 
+[node name="Refresh" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 147.0
+offset_right = 159.0
+offset_bottom = 248.0
+text = "refresh
+"
+
 [node name="Host" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 17.0
-offset_right = 151.0
-offset_bottom = 118.0
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 157.0
+offset_bottom = 131.0
 text = "host
 "
 
@@ -21,12 +29,13 @@ text = "host
 spawn_path = NodePath("..")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 232.0
-offset_top = 25.0
-offset_right = 717.0
-offset_bottom = 361.0
+offset_left = 242.0
+offset_top = 40.0
+offset_right = 727.0
+offset_bottom = 376.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
+[connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
